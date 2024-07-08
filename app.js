@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const Blog = require('./models/blog');
 const blogRouter = require('./controllers/blog');
 
 const app = express();
