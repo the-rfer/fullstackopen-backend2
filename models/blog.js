@@ -3,6 +3,7 @@ const { MONGOURL } = require('../utils/config');
 const mongoose = require('mongoose');
 
 info('Connecting to MongoDB...');
+
 mongoose
     .connect(MONGOURL)
     .then(() => {
