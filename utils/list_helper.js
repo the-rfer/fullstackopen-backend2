@@ -101,8 +101,6 @@ const mostLikes = (blogs) => {
         return acc;
     }, {});
 
-    console.log('VERIFYING BLOGCOUNTS: ', blogCounts);
-
     let maxLikes = 0;
     let topAuthor = '';
 
