@@ -9,7 +9,7 @@ const assert = require('node:assert');
 const mongoose = require('mongoose');
 const supertest = require('supertest');
 const app = require('../app');
-const Blog = require('../models/blog');
+const Blog = require('../models/blogSchema');
 const api = supertest(app);
 
 beforeEach(async () => {

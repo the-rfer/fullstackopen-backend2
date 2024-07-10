@@ -11,6 +11,8 @@ const errorHandler = (err, req, res, next) => {
         case 'ValidationError':
             return res.status(400).json({ error: err.message });
 
+        case 'MongoServerError':
+            return res.status(400).json({ error: 'username already taken' });
         default:
             next(error);
     }
