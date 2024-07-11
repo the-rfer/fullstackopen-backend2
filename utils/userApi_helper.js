@@ -1,12 +1,12 @@
 const initialUser = {
-    username: 'superuser',
-    name: 'root',
+    username: 'test',
+    name: 'Test User',
     password: 'password',
 };
 
 const validUser = {
-    username: 'test',
-    name: 'Test User',
+    username: 'superuser',
+    name: 'root',
     password: 'password',
 };
 

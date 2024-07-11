@@ -5,6 +5,11 @@ const bcrypt = require('bcryptjs');
 userRouter.post('/api/users', async (request, response) => {
     const { username, name, password } = request.body;
 
+    if (!password)
+        return response
+            .status(400)
+            .json({ error: 'password is required' })
+            .end();
     if (password.length < 3)
         return response.status(400).json({ error: 'password too short' }).end();
 
