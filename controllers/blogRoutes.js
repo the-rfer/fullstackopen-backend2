@@ -53,7 +53,12 @@ blogRouter.delete('/:id', userExtractor, async (request, response) => {
     response.status(204).end();
 });
 
-blogRouter.put('/:id', async (request, response) => {
+blogRouter.put('/:id', userExtractor, async (request, response) => {
+    const user = request.user;
+
+    if (!user)
+        return response.status(401).json({ error: 'Authentication required' });
+
     const updatedPost = await Blog.findByIdAndUpdate(
         request.params.id,
         { $inc: { likes: 1 } },
