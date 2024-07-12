@@ -13,6 +13,10 @@ const errorHandler = (err, req, res, next) => {
 
         case 'MongoServerError':
             return res.status(400).json({ error: 'username already taken' });
+
+        case 'JsonWebTokenError':
+            return response.status(401).json({ error: 'token invalid' });
+
         default:
             next(error);
     }

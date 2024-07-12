@@ -2,7 +2,7 @@ const userRouter = require('express').Router();
 const User = require('../models/userSchema');
 const bcrypt = require('bcryptjs');
 
-userRouter.post('/api/users', async (request, response) => {
+userRouter.post('/', async (request, response) => {
     const { username, name, password } = request.body;
 
     if (!password)
@@ -27,8 +27,12 @@ userRouter.post('/api/users', async (request, response) => {
     response.status(201).json(savedUser);
 });
 
-userRouter.get('/api/users', async (_, response) => {
-    const foundUsers = await User.find({});
+userRouter.get('/', async (_, response) => {
+    const foundUsers = await User.find({}).populate('blogs', {
+        title: 1,
+        url: 1,
+        likes: 1,
+    });
     response.json(foundUsers);
 });
 
